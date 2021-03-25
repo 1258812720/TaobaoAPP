@@ -1,0 +1,43 @@
+/*自适应布局*/
+@media screen and (max-width: 1190px) {
+    .last {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .tb-push {
+        display: none;
+    }
+
+    .main-content, .container_one, .content-box {
+        max-width: 1030px;
+        zoom: 1.1;
+    }
+
+    .store li {
+        width: 150px !important;
+    }
+
+    .jFrame-top {
+        margin-left: 486px !important;
+    }
+
+    .guess-car {
+        width: 254px !important;
+    }
+
+    .type_push_items:nth-of-type(5) {
+        display: none;
+    }
+
+    .top-nav-div {
+        width: 840px;
+    }
+
+}
+
+.mobile {
+    width: 122%;
+}
+

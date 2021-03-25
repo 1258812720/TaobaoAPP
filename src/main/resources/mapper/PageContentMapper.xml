@@ -1,0 +1,96 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD com.example.Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.taobao.app.mapper.PageContentMapper">
+    <resultMap id="picture" type="com.taobao.app.entity.Picture">
+        <id column="id" property="id"/>
+        <result property="link" column="link" jdbcType="VARCHAR"/>
+        <result property="img_src" column="img_src" jdbcType="VARCHAR"/>
+        <result property="pno" column="pno" jdbcType="VARCHAR"/>
+    </resultMap>
+    <!---->
+    <select id="getPicture" resultMap="picture" parameterType="com.taobao.app.entity.Picture">
+        SELECT link, src, pno
+        FROM tb_media
+        WHERE id = #{id,jdbcType=INTEGER}
+        LIMIT 1;
+    </select>
+
+    <resultMap id="Text" type="com.taobao.app.entity.Text">
+        <id column="id" property="id"/>
+        <result property="text" column="title" jdbcType="VARCHAR"/>
+        <result property="link" column="link" jdbcType="VARCHAR"/>
+    </resultMap>
+    <!---->
+    <select id="getLeft" resultMap="Text" parameterType="com.taobao.app.entity.Text">
+        SELECT title, link
+        FROM left_lead
+        ORDER BY id;
+    </select>
+
+    <resultMap id="Images" type="com.taobao.app.entity.Img">
+        <id column="id" property="id"/>
+        <result property="title" column="title" jdbcType="VARCHAR"/>
+        <result property="link" column="link" jdbcType="VARCHAR"/>
+        <result property="img_url" column="img_url" jdbcType="VARCHAR"/>
+        <result property="type" column="type" jdbcType="INTEGER"/>
+    </resultMap>
+    <!--获取网页图-->
+    <select id="getImages" resultMap="Images" parameterType="com.taobao.app.entity.Img">
+        SELECT title, link, img_url, type
+        FROM pageimg
+        where type is not null
+        order by type
+        limit 2;
+    </select>
+    <!--获取公告-->
+    <resultMap id="Tell" type="com.taobao.app.entity.Tell">
+        <id column="id" property="id"/>
+        <result property="title" column="title" jdbcType="VARCHAR"/>
+        <result property="link" column="link" jdbcType="VARCHAR"/>
+    </resultMap>
+    <!--获取网页图-->
+    <select id="getTell" resultMap="Tell" parameterType="com.taobao.app.entity.Tell">
+        SELECT title, link
+        FROM day_tell
+        WHERE title is not null
+        ORDER BY create_date DESC;
+    </select>
+    <!--获取网页图-->
+    <select id="getPush" resultMap="Tell" parameterType="com.taobao.app.entity.Tell">
+        SELECT title, link
+        FROM tb_push
+        WHERE title is not null;
+    </select>
+    <!--    //-->
+
+    <resultMap id="Table" type="com.taobao.app.entity.Table">
+        <id column="id" property="id"/>
+        <result property="title" column="title" jdbcType="VARCHAR"/>
+        <result property="link" column="link" jdbcType="VARCHAR"/>
+        <result property="img" column="img" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="getMedia" resultMap="Table" parameterType="java.lang.String">
+        SELECT *
+        FROM ${table}
+        LIMIT 5;
+    </select>
+    <select id="getBanner" resultMap="Images">
+        SELECT *
+        FROM tb_banner
+        WHERE type IS NOT NULL
+        LIMIT 1;
+    </select>
+    <select id="getMore" resultType="com.taobao.app.entity.More">
+        SELECT *
+        FROM tb_more
+        WHERE price IS NOT NULL;
+    </select>
+
+    <select id="getSwiper" resultType="com.taobao.app.entity.Picture">
+        SELECT *
+        FROM tb_swipers
+    </select>
+</mapper>

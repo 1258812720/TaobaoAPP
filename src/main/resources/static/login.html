@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>账户登录</title>
+    <link th:href="@{static/resource/img/png/logo.png}" rel="icon"/>
+    <link rel="stylesheet" th:href="@{static/resource/css/font.css}">
+    <link rel="stylesheet" th:href="@{static/resource/css/style_login.css}">
+    <script type="text/javascript" th:src="@{webjars/jquery/3.5.1/jquery.js}"></script>
+    <script th:src="@{static/resource/lib/MD5.js}"></script>
+</head>
+<body>
+<div class="container">
+    <div class="top-bar">
+        <div class="top-item">
+            <i class="icon">
+                <a href="javascript:void(0)">
+                    <img src="https://img.alicdn.com/tfs/TB1_uT8a5ERMeJjSspiXXbZLFXa-143-59.png" alt="">
+                </a>
+            </i>
+            <i class="adjust fa fa-comments">
+                <a href="javascript:void(0)"> "登录页面"改进建议</a></i>
+        </div>
+    </div>
+    <div class="content">
+        <div class="login-box">
+            <form id="fm" onsubmit="return false" method="post">
+                <label for="index_1">
+                    <i class="icons fa fa-user"></i>
+                    <input class="info" id="index_1" type="text" name="username" placeholder="账户">
+                </label>
+                <label for="index_2">
+                    <i class="icons fa fa-lock"></i>
+                    <input class="info" id="index_2" type="password" name="password" placeholder="密码">
+                </label>
+                <label for="lg-btn">
+                    <a type="submit" href="javascript:void(0)" target="_self" id="lg-btn">登录</a>
+                </label>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+<script th:src="@{static/resource/js/login.js}"></script>
+</html>

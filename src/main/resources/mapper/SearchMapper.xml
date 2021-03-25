@@ -1,0 +1,22 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD com.example.Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.taobao.app.mapper.SearchMapper">
+    <select id="search" resultType="com.taobao.app.entity.Depository" parameterType="java.lang.String">
+        SELECT *
+        FROM tb_seprve
+        <where>
+            <choose>
+                <when test="type!=null">
+                    name LIKE CONCAT('%', #{word,jdbcType=VARCHAR}, '%') OR type_no LIKE CONCAT('%',
+                    #{type,jdbcType=VARCHAR}, '%')
+                </when>
+                <otherwise>
+                    name LIKE CONCAT('%',#{word,jdbcType=VARCHAR},'%')
+                </otherwise>
+            </choose>
+        </where>
+        ORDER BY id DESC
+    </select>
+</mapper>

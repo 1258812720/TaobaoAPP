@@ -1,0 +1,120 @@
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.top-bar {
+    width: 100%;
+    background-color: #ffffff;
+    position: relative;
+    top: 0;
+}
+
+.icon {
+    display: block;
+    width: 110px;
+    height: 44px;
+    overflow: hidden;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+}
+
+.top-item {
+    padding: 15px;
+    width: 65%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.adjust {
+    font-family: myFont;
+    color: #ff5f00;
+}
+
+.adjust a {
+    text-decoration: none;
+    color: #373535;
+    font-size: 14px;
+}
+
+.content {
+    width: 100%;
+    height: 600px;
+    position: relative;
+    margin: 0 auto;
+    background-color: #999999;
+    background-image: url("https://gtms01.alicdn.com/tps/i1/TB1GTCYLXXXXXcHXpXXcoeQ2VXX-2500-600.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.login-box {
+    padding: 10px;
+    width: 333px;
+    height: 296px;
+    position: relative;
+    margin-right: 17%;
+    margin-top: 6%;
+    float: right;
+    background-color: #e9e9f2;
+}
+
+#fm label {
+    height: 38px;
+    width: 90%;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+}
+
+#fm input {
+    outline: none;
+    border: 1px solid #eeeeee;
+    text-indent: 0.32rem;
+    height: auto;
+    width: 70%;
+    border-radius: 0;
+}
+
+.icons {
+    display: flex;
+    width: 38px;
+    height: 100%;
+    font-family: myFont, serif;
+    font-size: 28px;
+    color: white;
+    background-color: #cccccc;
+    justify-content: center;
+    align-items: center;
+}
+#fm{
+    margin-top: 60px;
+}
+.icons #fm input {
+    float: left
+}
+
+#lg-btn:hover {
+    background-color: #ff6023;
+}
+
+#lg-btn {
+    text-decoration: none;
+    display: flex;
+    width: 83%;
+    justify-content: center;
+    height: 100%;
+    border-radius: 5px;
+    color: white;
+    font-size: 18px;
+    background-color: #f40;
+    align-items: center;
+}

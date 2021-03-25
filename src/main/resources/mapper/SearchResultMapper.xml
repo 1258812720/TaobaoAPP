@@ -1,0 +1,28 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD com.example.Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.taobao.app.mapper.SearchResultMapper">
+    <resultMap id="result" type="com.taobao.app.entity.Search">
+        <id column="id" property="id"/>
+        <result property="link" column="link" jdbcType="VARCHAR"/>
+        <result property="name" column="name" jdbcType="VARCHAR"/>
+        <result property="description" column="description" jdbcType="VARCHAR"/>
+        <result property="img_url" column="img_url" jdbcType="VARCHAR"/>
+        <result property="price" column="price" jdbcType="VARCHAR"/>
+        <result property="pno" column="pno" jdbcType="VARCHAR"/>
+    </resultMap>
+    <select id="SearchResult" resultMap="result" parameterType="com.taobao.app.entity.Search">
+        SELECT link, title, description
+        from storehouse_one
+        <choose>
+            <when test="keyword==null">
+                where title like CONCAT('_', ${keyword,jdbcType=VARCHAR}, '%')
+            </when>
+            <when test="keyword != null">
+                where title is not null
+            </when>
+        </choose>
+        limit 0,30 group by title;
+    </select>
+</mapper>

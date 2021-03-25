@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${result}"></title>
+    <link th:href="@{static/search/css/style.css}" rel="stylesheet"/>
+    <script th:src="@{static/resource/js/jQuery-3.4.1.js}"></script>
+    <script type="text/javascript" th:src="@{static/resource/lib/DelayLoad.js}"></script>
+</head>
+<body>
+<div class="top">
+
+</div>
+<div class="container">
+    <ul class="item-list">
+        <li th:each="arr:${result}" class="item-li">
+            <div class="item-img">
+                <a href="/">
+                    <img th:src="${arr.src}" alt="">
+                    <label th:text="${arr.name}"></label>
+                </a>
+            </div>
+        </li>
+    </ul>
+</div>
+</body>
+</html>
