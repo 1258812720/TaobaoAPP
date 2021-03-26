@@ -18,6 +18,7 @@ public class RedisUtil {
 
     //过期时间 单位小时
     public boolean expire(String key, long time) {
+
         try {
             if (time > 0)
                 redisTemplate.expire(key, time, TimeUnit.HOURS);

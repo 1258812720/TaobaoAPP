@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Value;
 import javax.annotation.Resource;
 import java.lang.reflect.Field;
 
-public class Demo {
+public class Demo extends FileWriterUtils{
     protected static int i = 100;
 
     public static void run() {

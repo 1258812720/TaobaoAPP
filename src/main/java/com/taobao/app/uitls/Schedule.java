@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.Date;
 
-////定时任务测试
+//定时任务测试
 //@Component
 //public class Schedule {
 //    @Scheduled(cron = "*/2 * * * * *")

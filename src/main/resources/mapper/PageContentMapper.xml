@@ -11,7 +11,7 @@
     </resultMap>
     <!---->
     <select id="getPicture" resultMap="picture" parameterType="com.taobao.app.entity.Picture">
-        SELECT link, src, pno
+        SELECT link, CONCAT(src, '?id=', UUID_SHORT()) AS src
         FROM tb_media
         WHERE id = #{id,jdbcType=INTEGER}
         LIMIT 1;
@@ -64,7 +64,6 @@
         WHERE title is not null;
     </select>
     <!--    //-->
-
     <resultMap id="Table" type="com.taobao.app.entity.Table">
         <id column="id" property="id"/>
         <result property="title" column="title" jdbcType="VARCHAR"/>
@@ -84,13 +83,13 @@
         LIMIT 1;
     </select>
     <select id="getMore" resultType="com.taobao.app.entity.More">
-        SELECT *
+        SELECT id, link, CONCAT(img, '?', UUID_SHORT()) AS img, price, title
         FROM tb_more
         WHERE price IS NOT NULL;
     </select>
 
     <select id="getSwiper" resultType="com.taobao.app.entity.Picture">
-        SELECT *
+        SELECT link, CONCAT(src, '?', UUID_SHORT()) AS src, pno
         FROM tb_swipers
     </select>
 </mapper>
