@@ -9,7 +9,7 @@ import java.util.LinkedList;
 
 @Service
 public interface PageContentService {
-    ArrayList<Picture> getPicture(int id);
+    ArrayList<Picture> getPicture();
     LinkedList<Text> getLeft();
     LinkedList<Img> getImages();
     LinkedList<Tell> getTell();
@@ -18,4 +18,5 @@ public interface PageContentService {
     Img getBanner();
     LinkedList<More> getMore() throws Exception;
     LinkedList<Picture> getSwiper() throws Exception;
+    LinkedList<Push> getGoodPush();
 }

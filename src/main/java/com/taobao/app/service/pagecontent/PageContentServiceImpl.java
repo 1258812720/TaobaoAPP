@@ -18,8 +18,8 @@ public class PageContentServiceImpl implements PageContentService {
     private PageContentMapper pageContentMapper;
 
     @Override
-    public ArrayList<Picture> getPicture(int id) {
-        return pageContentMapper.getPicture(id);
+    public ArrayList<Picture> getPicture() {
+        return pageContentMapper.getPicture();
     }
 
     @Override
@@ -60,5 +60,10 @@ public class PageContentServiceImpl implements PageContentService {
     @Override
     public LinkedList<Picture> getSwiper() throws Exception {
         return pageContentMapper.getSwiper();
+    }
+
+    @Override
+    public LinkedList<Push> getGoodPush() {
+        return pageContentMapper.getGoodPush();
     }
 }

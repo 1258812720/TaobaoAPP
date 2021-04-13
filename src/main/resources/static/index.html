@@ -3,17 +3,19 @@
 <head>
     <meta charset="utf-8"/>
     <title>淘宝网</title>
-    <meta http-equiv="X-UA-Compatible" content="edge" />
+    <meta http-equiv="X-UA-Compatible" content="edge"/>
     <meta name="renderer" content="webkit"/>
-    <link th:href="@{static/resource/img/png/logo.png}" rel="icon"/>
+    <link th:href="@{static/resource/img/png/logo.ico}" rel="icon"/>
     <link th:href="@{static/resource/css/font.css}" charset="UTF-8" rel="stylesheet"/>
     <link th:href="@{static/resource/css/comm.css}" charset="UTF-8" rel="stylesheet"/>
     <link th:href="@{static/resource/css/style.css}" charset="UTF-8" rel="stylesheet"/>
     <link th:href="@{static/resource/css/media.css}" charset="UTF-8" rel="stylesheet"/>
     <link th:href="@{static/resource/css/style_part2.css}" charset="UTF-8" rel="stylesheet"/>
     <link th:href="@{static/resource/css/main.css}" charset="UTF-8" rel="stylesheet"/>
+    <link rel="stylesheet" href="http://a.tbcdn.cn/s/kissy/1.3.0/css/dpl/base.css"/>
     <script type="text/javascript" th:src="@{static/resource/js/ResultDeal.js}" charset="UTF-8"></script>
     <script type="text/javascript" th:src="@{static/resource/js/jQuery-3.4.1.js}" charset="UTF-8"></script>
+    <script src="http://g.tbcdn.cn/kissy/m/0.2.1/mini-full.js"></script>
     <script type="text/javascript" th:src="@{static/resource/lib/Cookie.js}"></script>
     <script type="module" th:src="@{static/resource/js/init.js}" charset="UTF-8"></script>
     <script type="text/javascript" th:src="@{static/resource/js/script.js}" charset="UTF-8"></script>
@@ -47,20 +49,22 @@
             </div>
         </div>
         <div class="top-item-content-right">
-            <li class="my_tb">
-                <a href="javascript:void(0)">我的淘宝</a>
-                <div class="site-mytb model" th:text="${shop}">
-                    <span class="site-nav-region-item">已买到的宝贝</span>
-                    <span class="site-nav-region-item">我的足迹</span>
-                </div>
-            </li>
-            <li>购物车0</li>
-            <li>收藏夹</li>
-            <li>商品分类</li>
-            <li>免费开店</li>
-            <li>千牛卖家中心</li>
-            <li>联系客服</li>
-            <li>网站导航</li>
+            <ul class="c_r">
+                <li class="my_tb">
+                    <a href="javascript:void(0)">我的淘宝</a>
+                    <div class="site-mytb model" th:text="${shop}">
+                        <span class="site-nav-region-item">已买到的宝贝</span>
+                        <span class="site-nav-region-item">我的足迹</span>
+                    </div>
+                </li>
+                <li>购物车0</li>
+                <li>收藏夹</li>
+                <li>商品分类</li>
+                <li>免费开店</li>
+                <li>千牛卖家中心</li>
+                <li>联系客服</li>
+                <li>网站导航</li>
+            </ul>
         </div>
     </div>
 </div>
@@ -82,12 +86,12 @@
         </div>
         <div class="search-input">
             <ul class="J_SearchTab">
-                <li class="J_SearchTab-li select">宝贝</li>
+                <li class="J_SearchTab-li">宝贝</li>
                 <li class="J_SearchTab-li">天猫</li>
                 <li class="J_SearchTab-li">店铺</li>
             </ul>
             <!--搜索框-->
-            <form accept-charset="ISO_8859_1" target="_self" action="/search" method="get">
+            <form id="frm" accept-charset="ISO_8859_1" target="_self" action="/search" method="get">
                 <div class="search-keywords">
                     <i class="biger"></i>
                     <input autocomplete="off" name="word" id="keyword"/>
@@ -113,7 +117,6 @@
         </div>
     </div>
 </div>
-
 <!--首部内容-->
 <div class="main-content radius">
     <div class="top-nav">
@@ -145,27 +148,34 @@
     </div>
     <!-- 中间轮播 -->
     <div class="tb-slide ">
-        <div class="tb-slide-one">
-            <div class="tb-slide-shade radius hidden">
-                <p class="tb-slide-one-prev prev"></p>
-                <p class="tb-slide-one-next next"></p>
-                <div class="point">
-                    <li class="cur"></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                </div>
-                <div style="position: relative;top:0;width: 100%;height:100%;overflow: hidden">
-                    <div class="tb-slide-bar">
-                        <ins class="tb-slide-item radius hidden"></ins>
-                        <ins class="tb-slide-item radius hidden"></ins>
-                        <ins class="tb-slide-item radius hidden"></ins>
-                        <ins class="tb-slide-item radius hidden"></ins>
-                        <ins class="tb-slide-item radius hidden"></ins>
-                    </div>
+        <div id="slide" class="tb-slide-shade radius">
+            <!--Slide控件开始-->
+            <div id="swiper_one" class="slides_container tab-content">
+                <div th:each="slide:${swiper}" class="tab-pannel">
+                    <a th:href="${slide.link}">
+                        <img th:src="${slide.src}"/>
+                    </a>
                 </div>
             </div>
+            <a href="javascript:void(0);" class="prev tb-slide-one-prev" id="J_pre"></a>
+            <a href="javascript:void(0);" class="next tb-slide-one-next" id="J_next"></a>
+            <ul class="tab-nav pagination">
+                <li>
+                    <a href="javascript:void(0);"></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"></a>
+                </li>
+            </ul>
         </div>
         <div class="tb-slide-two">
             <p class="tb-slide-two-prev prev"></p>
@@ -205,7 +215,7 @@
                 <!-- 用户名字 -->
                 <div th:with="ios=${userInfo}" th:remove="tag">
                     <p th:if="${ios}" class="username">
-                        <a href="javascript:void(0)" th:text="${userInfo.getNickname()}"></a>
+                        <a href="javascript:void(0)" th:text="'hi!, '+${userInfo.nickname}"></a>
                     </p>
                     <p th:unless="${ios}" class="username">
                         <a href="javascript:void(0)">Hi! 你好</a>
@@ -335,69 +345,14 @@
         <span>有好货</span>
     </div>
     <ul class="store">
-        <li>
-            <a href="javascript:void(0)">
+        <li th:each="item:${app}">
+            <a th:href="${item.link}">
                 <img alt="" class="radius" delay="true"
-                     data="https://img.alicdn.com/tfscom/i1/1581756766/TB2TF0ch0zJ8KJjSspkXXbF7VXa_!!1581756766.jpg_180x180xzq90.jpg">
-                <label>大豆家 方头奶奶鞋</label>
-                <p>一脚蹬设计，方便日常的穿脱。</p>
+                     th:attr="data=${item.src}">
+                <label th:text="${item.title}"></label>
+                <p th:text="${item.description}">一脚蹬设计，方便日常的穿脱。</p>
                 <nav class="use_word">
-                    <label class="fa-smile-o" th:text="${num}"></label>人说好
-                </nav>
-            </a>
-        </li>
-        <li>
-            <a href="javascript:void(0)">
-                <img alt="" class="radius" delay="true"
-                     data="https://img.alicdn.com/tfscom/i3/2459354798/TB2IyE5eUhnpuFjSZFpXXcpuXXa_!!2459354798.jpg_180x180xzq90.jpg">
-                <label>大豆家 方头奶奶鞋</label>
-                <p>一脚蹬设计，方便日常的穿脱。</p>
-                <nav class="use_word">
-                    <label class="fa-smile-o" th:text="${num}"></label>人说好
-                </nav>
-            </a>
-        </li>
-        <li>
-            <a href="javascript:void(0)">
-                <img alt="" class="radius" delay="true"
-                     data="https://img.alicdn.com/tfscom/i4/654230132/O1CN011CqUjXBxyNTXTMy_!!654230132.jpg_180x180xzq90.jpg">
-                <label>大豆家 方头奶奶鞋</label>
-                <p>一脚蹬设计，方便日常的穿脱。</p>
-                <nav class="use_word">
-                    <label class="fa-smile-o" th:text="${num}"></label>人说好
-                </nav>
-            </a>
-        </li>
-        <li>
-            <a href="javascript:void(0)">
-                <img alt="" class="radius" delay="true"
-                     data="https://img.alicdn.com/imgextra/i4/1980545515/TB2r2RUo3ZC2uNjSZFnXXaxZpXa_!!1980545515-0-beehive-scenes.jpg_180x180xzq90.jpg">
-                <label>大豆家 方头奶奶鞋</label>
-                <p>一脚蹬设计，方便日常的穿脱。</p>
-                <nav class="use_word">
-                    <label class="fa-smile-o" th:text="${num}"></label>人说好
-                </nav>
-            </a>
-        </li>
-        <li>
-            <a href="javascript:void(0)">
-                <img alt="" class="radius" delay="true"
-                     data="https://img.alicdn.com/imgextra/i3/2447079312/TB2ndVEJ1uSBuNjSsziXXbq8pXa_!!2447079312-0-beehive-scenes.jpg_180x180xzq90.jpg">
-                <label>大豆家 方头奶奶鞋</label>
-                <p>一脚蹬设计，方便日常的穿脱。</p>
-                <nav class="use_word">
-                    <label class="fa-smile-o" th:text="${num}"></label>人说好
-                </nav>
-            </a>
-        </li>
-        <li>
-            <a href="javascript:void(0)">
-                <img alt="" class="radius" delay="true"
-                     data="https://img.alicdn.com/imgextra/i3/727807374/TB2WRIdvrZnBKNjSZFhXXc.oXXa_!!727807374-0-beehive-scenes.jpg_180x180xzq90.jpg">
-                <label>大豆家 方头奶奶鞋</label>
-                <p>一脚蹬设计，方便日常的穿脱。</p>
-                <nav class="use_word">
-                    <label class="fa-smile-o" th:text="${num}"></label>人说好
+                    <label class="fa-smile-o" th:text="${item.appraise}"></label>人说好
                 </nav>
             </a>
         </li>

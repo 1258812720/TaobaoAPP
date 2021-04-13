@@ -13,8 +13,6 @@
     <select id="getPicture" resultMap="picture" parameterType="com.taobao.app.entity.Picture">
         SELECT link, CONCAT(src, '?id=', UUID_SHORT()) AS src
         FROM tb_media
-        WHERE id = #{id,jdbcType=INTEGER}
-        LIMIT 1;
     </select>
 
     <resultMap id="Text" type="com.taobao.app.entity.Text">
@@ -91,5 +89,11 @@
     <select id="getSwiper" resultType="com.taobao.app.entity.Picture">
         SELECT link, CONCAT(src, '?', UUID_SHORT()) AS src, pno
         FROM tb_swipers
+    </select>
+    <select id="getGoodPush" resultType="com.taobao.app.entity.Push">
+        SELECT id, link, CONCAT(src, '?', UUID_SHORT()) AS src, description, title, appraise
+        FROM percent_good
+        ORDER BY appraise
+        LIMIT 9;
     </select>
 </mapper>

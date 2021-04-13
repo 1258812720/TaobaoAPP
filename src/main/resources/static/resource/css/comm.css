@@ -15,66 +15,68 @@ body {
 
 .invalid {
     color: #ff6f06;
+    width: auto;
+    left: 0;
+    display: flex;
     position: relative;
+    justify-content: start;
 }
 
 .logout {
-    position: absolute;
     width: 120px;
-    left: 110px;
-    top: 0
+    margin-left: 2px;
 }
 
 .tb-slide-shade {
-user-select: none;
--moz-user-select: none;
--webkit-user-select: none;
--ms-user-select: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 }
 
 #hide a, #hide .shop_message {
 
-position: relative;
-top: 0;
+    position: relative;
+    top: 0;
 }
 
 #hide a {
-transition: top .42s .5s;
-top: -28px;
+    transition: top .42s .5s;
+    top: -28px;
 }
 
 #hide .shop_message {
-top: -28px;
-transition: top .42s .5s;
+    top: -28px;
+    transition: top .42s .5s;
 }
 
 ul {
-margin: 0;
+    margin: 0;
 
-padding: 0;
+    padding: 0;
 }
 
 img {
-width: 100%;
-height: 100%;
+    width: 100%;
+    height: 100%;
 }
 
 * {
-background-position: center;
-background-repeat: no-repeat;
-box-sizing: border-box;
-list-style: none;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+    list-style: none;
 }
 
 html {
-overflow-y: scroll;
-overflow-x: hidden;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .radius {
-border-radius: 18px;
+    border-radius: 18px;
 }
 
 .hidden {
-overflow: hidden;
+    overflow: hidden;
 }

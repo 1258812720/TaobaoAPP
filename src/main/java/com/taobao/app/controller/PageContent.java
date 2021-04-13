@@ -5,6 +5,7 @@ import com.github.pagehelper.PageHelper;
 import com.taobao.app.entity.Picture;
 import com.taobao.app.service.pagecontent.PageContentServiceImpl;
 import org.springframework.web.bind.annotation.*;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
@@ -17,24 +18,6 @@ import java.util.LinkedList;
 public class PageContent {
     @Resource
     private PageContentServiceImpl pageContentService;
-
-    //大轮播图图片
-    @RequestMapping(value = "/getPicture", method = RequestMethod.POST)
-    public ArrayList<Picture> getPicture(HttpServletRequest request) {
-        //字符串转数字
-        int num = Integer.parseInt(request.getParameter("num"));
-        ArrayList<Picture> arrayList;
-        try {
-            if (num > 6 || num < 0) {
-                return null;
-            } else {
-                arrayList = pageContentService.getPicture(num);
-            }
-        } catch (Exception e) {
-            return null;
-        }
-        return arrayList;
-    }
 
     private static final int COUNT = 2;//每条请求数量
 

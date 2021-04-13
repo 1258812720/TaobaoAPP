@@ -3,6 +3,10 @@
     .last {
         display: none;
     }
+
+    html {
+        width: 1190px;
+    }
 }
 
 @media screen and (max-width: 1200px) {

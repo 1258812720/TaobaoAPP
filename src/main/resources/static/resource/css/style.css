@@ -2,7 +2,7 @@
 /*颜色:#ff5000
 #f4f4f4*/
 .search-input input {
-    text-indent: 8px;
+    text-indent: 72px;
 }
 
 input,
@@ -23,6 +23,10 @@ button {
     background-color: transparent;
 }
 
+.username a {
+    font-size: 12px;
+}
+
 .top-item {
     width: 100%;
     height: 35px;
@@ -30,7 +34,7 @@ button {
     top: 0;
     left: 0;
     min-height: 35px;
-    background-color: white;
+    background-color: #f5f5f5;
     color: #3c3c3c;
     z-index: 999;
 }
@@ -82,6 +86,14 @@ button {
 
 .top-item-content-right {
     width: 64%;
+    position: relative;
+}
+
+.c_r {
+    position: absolute;
+    right: 9%;
+    display: flex;
+    height: 100%;
 }
 
 .model {
@@ -146,7 +158,7 @@ button {
 .search-nav {
     width: 100%;
     margin: 0 auto 0 auto;
-    padding-top: 44px;
+    padding-top: 24px;
 }
 
 .top {
@@ -171,13 +183,17 @@ button {
 }
 
 .search-input {
-    width: 610px;
+    width: 650px;
     margin-left: 5%;
     position: relative;
 }
 
+#frm {
+    margin-top: 20px;
+}
+
 .code {
-    margin-left: 8%;
+    margin-left: 10.5%;
     width: 85px;
     border: 1px solid #ff4200;
 }
@@ -196,7 +212,6 @@ button {
     align-items: center;
     align-content: center;
     position: relative;
-    border: 2px solid #ff5f01;
     padding: 0;
     border-right: 0;
     border-radius: 16px 0 0 16px;
@@ -213,30 +228,32 @@ button {
 }
 
 .J_SearchTab-li {
-    display: block;
-    float: left;
-    width: 22.33%;
+    display: flex;
     cursor: pointer;
-    text-align: center;
-    font-size: 12px;
-    line-height: 20px;
-    height: 100%;
-    color: #ff5000;
+    font-size: 14px;
+    justify-content: center;
+    align-items: center;
+    height: 36px;
+
 }
 
-.J_SearchTab-li:hover {
-    background-color: antiquewhite;
+.J_SearchTab:hover {
+    height: 108px;
 }
 
 .J_SearchTab {
     margin: 0;
     padding: 0;
-    position: relative;
-    top: 0;
-    left: 20px;
-    height: 20px;
-    width: 180px;
+    position: absolute;
+    top: 20px;
+    left: 0px;
+    height: 36px;
+    width: 72px;
+    border-radius: 16px 0 0 16px;
+    z-index: 2;
+    background: white;
     overflow: hidden;
+    transition: height .32s;
 }
 
 .biger {
@@ -248,8 +265,8 @@ button {
     pointer-events: none;
     height: 20px;
     position: absolute;
-    top: 7px;
-    left: 10px;
+    top: 10px;
+    left: 70px;
 }
 
 .select {
@@ -260,16 +277,16 @@ button {
 }
 
 .reslut {
-    width: 88%;
+    width: 78%;
     z-index: 1;
     position: absolute;
-    top: 55px;
+    top: 56px;
+    left: 10%;
     height: auto;
     border: 1px solid #c9c9c9;
     display: none;
     max-height: 250px;
     background-color: white;
-
 }
 
 .reslut li:hover {
@@ -278,6 +295,8 @@ button {
 
 .reslut li {
     font-size: 14px;
+    padding: 4px;
+    box-sizing: border-box;
 }
 
 .search-push {
@@ -478,7 +497,7 @@ button {
     background-size: 5%;
     background-repeat: no-repeat;
     background-position: center center;
-    height: 100%;
+    height: auto;
     overflow: hidden;
     background-image: url("../img/gif/TB1BlobNFXXXXXyXXXXXXXXXXXX-34-34.gif");
 }
@@ -501,7 +520,7 @@ button {
     width: 22px;
     height: 30px;
     z-index: 5;
-    top: 40%;
+    top: 45%;
     background-position: center;
     color: white;
     cursor: pointer;
@@ -672,8 +691,9 @@ button {
 }
 
 .username {
-    margin-bottom: 0;
-    margin-top: 13px;
+    margin-top: 8px;
+    font-size: 14px;
+    margin-bottom: 4px;
 }
 
 .banner {
@@ -866,10 +886,12 @@ button {
 }
 
 .store label, .store li p {
-    text-indent: 2px;
     color: #494949;
     width: 100%;
     margin: 0;
+    overflow: hidden;
+    font-size: 16px;
+    white-space: nowrap;
 }
 
 .store li p {
@@ -1015,4 +1037,44 @@ button {
     color: #FF5000;
     bottom: 20px;
     font-size: 20px;
+}
+
+.top-nav-div ul {
+    margin: 0 !important;
+}
+
+#slide {
+    position: relative;
+    overflow: hidden;
+    height: 280px;
+    width: 520px;
+}
+
+ul.tab-nav.pagination {
+    z-index: 4;
+    position: absolute;
+    bottom: 8px;
+    display: flex;
+    width: 70px;
+    height: 10px;
+    left: 44%;
+    border-radius: 10px;
+    padding: 6px;
+    margin: auto;
+    background-color: #ffffff61;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.pagination li {
+    cursor: pointer;
+    height: 8px;
+    width: 8px;
+    float: left;
+    border-radius: 50%;
+    background-color: #ffffff;
+}
+
+.pagination .current {
+    background-color: #ff6f06 !important;
 }

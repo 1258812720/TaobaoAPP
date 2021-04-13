@@ -12,7 +12,7 @@ import java.util.LinkedList;
 @Mapper
 public interface PageContentMapper {
 
-    ArrayList<Picture> getPicture(int id);
+    ArrayList<Picture> getPicture();
 
     LinkedList<Text> getLeft();
 
@@ -29,4 +29,5 @@ public interface PageContentMapper {
     LinkedList<More> getMore();
 
     LinkedList<Picture> getSwiper();
+    LinkedList<Push> getGoodPush();
 }

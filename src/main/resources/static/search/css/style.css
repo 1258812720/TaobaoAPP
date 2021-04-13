@@ -1,34 +1,239 @@
-.top {
-    width: 1200px;
-    max-width: 1200px;
-    min-width: 800px;
+.top-item {
+    width: 100%;
+    height: 35px;
     position: relative;
-    margin: 120px auto;
-    background: #ff5c00;
-    text-align: center;
-    font-size: 32px;
+    top: 0;
+    left: 0;
+    min-height: 35px;
+    background-color: white;
+    color: #3c3c3c;
+    z-index: 999;
+}
+
+.top-item .top-item-content {
+    width: 1190px;
+    user-select: none;
+    font-size: 14px;
+    line-height: 34px;
+    height: 100%;
+    position: relative;
+    margin: 0 auto;
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+}
+
+.top-item-content div {
+    align-items: center;
+}
+
+.top-item-content-right {
+    width: 64%;
+}
+
+.top-item-content-left, .top-item-content-right {
+    float: left;
+    height: 100%;
+}
+
+.top-item-content-left {
+    margin-right: 4%;
+    width: 30%;
+}
+
+.my_tb, .top-item-content-left li:nth-of-type(1) {
+    box-sizing: border-box;
+    border: 1px solid transparent;
+}
+
+.top-item-content-left li:first-child {
+    color: black;
+}
+
+.top-item-content li {
+    font-size: 12px;
+    float: left;
+    white-space: nowrap;
+    overflow: visible;
+    font-family: serif;
+    cursor: pointer;
+    margin-left: 2%;
+    color: #6b6b6b;
+    height: 100%;
+    display: block;
+}
+
+.top-item-content div {
+    align-items: center;
+}
+
+.a-invalid {
+    color: red;
+}
+
+.top-item-content a {
+    color: inherit;
+    font-family: inherit;
+    text-decoration: none;
+}
+
+
+.my_tb, .top-item-content-left li:nth-of-type(1) {
+    box-sizing: border-box;
+    border: 1px solid transparent;
+}
+
+.my_tb {
+    width: 100px;
+    max-width: 50px;
+    overflow: hidden;
+}
+
+.container {
+    overflow: hidden;
+    max-width: 1200px;
+    min-width: 620px;
+    position: relative;
+    margin: auto;
+    width: 1200px;
+    height: auto;
+    background-color: white;
+}
+
+body, ul {
+    margin: 0;
+    padding: 0;
 }
 
 .item-list {
     display: table;
-    width: 500px;
+    width: 76%;
     height: auto;
 }
 
 .item-list li {
     display: inline-block;
-    width: 20%;
-    height: 320px;
+    max-width: 250px;
+    max-height: 390px;
+    margin: 6px;
 }
 
 .item-list li .item-img {
-    width: 250px;
-    height: 255px;
     position: relative;
-    margin: 10px auto;
+}
+
+.item-li {
+    margin-left: 2px;
+    margin-right: 2px;
+    border: 1px solid transparent;
+
+}
+
+.item-li:hover {
+    border: 1px solid #ff6f06;
 }
 
 .item-list img {
     width: 100%;
     height: 100%;
+}
+
+.item-list, .push-list {
+    float: left;
+}
+
+.item-li {
+    text-decoration: none;
+}
+
+
+p.item-msg-p {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: 6px;
+}
+
+.item-msg-p .price {
+    color: #ff6200;
+    margin-right: 6px;
+}
+
+.push-list {
+    width: 24%;
+}
+
+.item-msg-p .price {
+    color: #ff6200;
+}
+
+.item-msg label {
+    font-size: 14px;
+    color: black;
+    display: block;
+    text-align: left;
+    height: 47px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.shop-name span {
+    font-size: 14px;
+}
+
+.item-msg label:hover {
+    color: #ff6f06;
+}
+
+.item-msg-p span {
+    color: #888;
+    font-size: 12px;
+}
+
+.none {
+    display: none;
+}
+
+.show {
+    display: block;
+    width: 27px;
+    height: 14px;
+    position: relative;
+    background-position: -42px -139px;
+}
+
+.icon-png {
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-image: url("/static/search/img/9dc0af086e7cc09f6768563194dd7226_TB1bh5IMpXXXXacaXXXrG06ZpXX-316-272.png");
+}
+
+.item-li a {
+    text-decoration: none;
+}
+
+.item-msg-p span {
+    position: absolute;
+    right: 2%;
+}
+
+.shop-name {
+    width: 100%;
+    position: relative;
+    display: flex;
+    margin: 5px 0 0 0;
+}
+
+.d {
+    margin-right: 6px;
+    display: block;
+    height: 16px;
+    width: 16px;
+    background-position: -269px -109px;
+}
+
+.search-nav {
+    width: 100%;
+    height: 210px;
+    position: relative;
 }

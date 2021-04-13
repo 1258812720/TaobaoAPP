@@ -36,6 +36,7 @@ public class TaoBaoController {
         this.imgList = new LinkedList<>();
         this.push = new LinkedList<>();
     }
+
     @GetMapping("/")//首页
     public String index(HttpSession session, HttpServletRequest request, Model model, HttpServletResponse response) throws Exception {
         //获取会话
@@ -90,6 +91,9 @@ public class TaoBaoController {
         Img img = pageContentService.getBanner();
         //拉取猜你喜欢模块
         LinkedList<More> mores = pageContentService.getMore();
+        //每日好货
+        LinkedList<Push> app = pageContentService.getGoodPush();
+        ArrayList<Picture> pictures = pageContentService.getPicture();
         try {
             model.addAttribute("push_one", imgList.get(0));
             model.addAttribute("push_two", imgList.get(1));
@@ -99,6 +103,8 @@ public class TaoBaoController {
             model.addAttribute("num", 1995);
             model.addAttribute("banner", img);
             model.addAttribute("more", mores);
+            model.addAttribute("app", app);
+            model.addAttribute("swiper",pictures);
         } catch (IndexOutOfBoundsException i) {
             i.printStackTrace();
         }
@@ -109,7 +115,7 @@ public class TaoBaoController {
     public String setSession(HttpSession session, HttpServletRequest request, HttpServletResponse response) {
         try {
             request.setCharacterEncoding(ENCODE);
-            request.setCharacterEncoding(ENCODE);
+            response.setCharacterEncoding(ENCODE);
             //获取ip地址做秘钥
             String key = session.getId();
 

@@ -1,0 +1,3 @@
+new lazy({
+    attr:"data"
+})

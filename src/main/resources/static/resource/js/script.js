@@ -19,9 +19,6 @@ $(document).ready(function () {
                 }, function () {
                     $(this).removeClass("show")
                 });
-                $(".J_SearchTab-li").click(function () {
-                    $(this).addClass("select").siblings().removeClass("select")
-                });
                 $(".nav-hd").hover(function () {
                     $(this).addClass("fa-futbol-o")
                 }, function () {
@@ -124,9 +121,7 @@ $(document).ready(function () {
                 if (items.children("a").attr("data-id") === undefined) {
                     let _t = this;
                     let n = new Promise(resolve => {
-                        setTimeout(() => {
-                            resolve(Load)
-                        }, 300)
+                        resolve(Load);
                     });
                     n.then(res => {
                         res()
@@ -157,7 +152,7 @@ $(document).ready(function () {
                 $(".point li").eq(i).addClass("cur").siblings().removeClass("cur")
             }
         };
-        slide_one.init();
+        // slide_one.init();
         var stopPro = {
             stop: (o) => {
                 o.stopPropagation()
@@ -188,9 +183,12 @@ $(document).ready(function () {
                 function result() {
                     $(".reslut li").off("click");
                     let vl = $(this).val();
+                    clearTimeout(id);
                     new Promise(resolve => {
-                        resolve(_t.request)
-                    }).then(e=>{
+                        id = setTimeout(() => {
+                            resolve(_t.request)
+                        }, 250);
+                    }).then(e => {
                         e(vl);
                     })
                 }

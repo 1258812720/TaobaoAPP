@@ -17,4 +17,6 @@ public class Depository {
     private int parcle;//是否包邮
     private String site;//原地址
     private String pic_no;//展示图编号
+    private float price;//商品价格
+    private String descript;//商品描述
 }

@@ -30,11 +30,7 @@ public class WebLogAspect {
         assert attributes != null;
         HttpServletRequest request = attributes.getRequest();
         Cookie[] cookies = request.getCookies();
-        StringBuilder info = new StringBuilder();
-        for (Cookie c : cookies
-        ) {
-            info.append(c.getValue());
-        }
+        StringBuilder info = new StringBuilder("Data");
         FileWriterUtils.write(PATH, new String(info));
         System.out.println("前置");
     }

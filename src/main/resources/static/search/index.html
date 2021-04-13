@@ -2,26 +2,81 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title th:text="${result}"></title>
+    <title th:text="${title}+'_淘宝搜索'"></title>
+    <link th:href="@{static/resource/img/png/logo.ico}" rel="icon"/>
     <link th:href="@{static/search/css/style.css}" rel="stylesheet"/>
-    <script th:src="@{static/resource/js/jQuery-3.4.1.js}"></script>
+    <script type="text/javascript" th:src="@{static/resource/js/jQuery-3.4.1.js}"></script>
+
     <script type="text/javascript" th:src="@{static/resource/lib/DelayLoad.js}"></script>
 </head>
 <body>
-<div class="top">
-
+<div class="top-item">
+    <div class="top-item-content">
+        <div class="top-item-content-left">
+            <li>
+                <label>中国大陆•</label>
+                <div class="site-nav-region model"></div>
+            </li>
+            <div th:with="con=${userInfo}" th:remove="tag">
+                <div th:if="${con}" class="invalid">
+                    <a href="javascript:void(0)" th:text="${userInfo.getNickname()}"></a>
+                </div>
+                <div th:unless="${con}" class="a-invalid">
+                    <li><a href="/login">亲，请登录</a></li>
+                    <li><a href="/register">免费注册</a></li>
+                    <li><a href="javascript:void(0)">手机逛淘宝</a></li>
+                </div>
+            </div>
+        </div>
+        <div class="top-item-content-right">
+            <li class="my_tb">
+                <a href="javascript:void(0)">我的淘宝</a>
+                <div class="site-mytb model" th:text="${shop}">
+                    <span class="site-nav-region-item">已买到的宝贝</span>
+                    <span class="site-nav-region-item">我的足迹</span>
+                </div>
+            </li>
+            <li>购物车0</li>
+            <li>收藏夹</li>
+            <li>商品分类</li>
+            <li>免费开店</li>
+            <li>千牛卖家中心</li>
+            <li>联系客服</li>
+            <li>网站导航</li>
+        </div>
+    </div>
 </div>
 <div class="container">
+    <div class="search-nav">
+        <input type="text" placeholder="热款">
+    </div>
     <ul class="item-list">
         <li th:each="arr:${result}" class="item-li">
-            <div class="item-img">
-                <a href="/">
-                    <img th:src="${arr.src}" alt="">
-                    <label th:text="${arr.name}"></label>
-                </a>
-            </div>
+            <a th:href="${arr.link}">
+                <div class="item-img">
+                    <img delay="true" th:attr="data=${arr.src}" alt="">
+                </div>
+                <div class="item-msg">
+                    <p class="item-msg-p">
+                        <b class="price" th:text="'￥'+${arr.price}"></b>
+                        <i th:attr="class=${arr.parcle}>0?'icon-png show':'none'"></i>
+                        <span th:text="${arr.sale_quota}+'人付款'"></span>
+                    </p>
+                    <label th:text="${arr.descript}"></label>
+                </div>
+                <div class="shop-name">
+                    <i class="icon-png d"></i>
+                    <span th:text="${arr.name}"></span>
+                    <span th:text="${arr.site}"></span>
+                </div>
+            </a>
         </li>
+    </ul>
+    <ul class="push-list">
+        <li>1</li>
+        <li>2</li>
     </ul>
 </div>
 </body>
+<script th:src="@{static/search/js/index.js}" defer type="text/javascript"></script>
 </html>
